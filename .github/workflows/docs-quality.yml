@@ -28,3 +28,5 @@ jobs:
       - name: Run publication safety and link checks
         run: python3 scripts/validate_publication.py
 
+      - name: Lint Markdown
+        run: npx --yes markdownlint-cli2@0.23.2 "**/*.md" "#node_modules"
