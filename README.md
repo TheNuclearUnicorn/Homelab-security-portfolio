@@ -142,7 +142,6 @@ See [Network Segmentation](docs/architecture/network-segmentation.md).
 - [Wazuh SIEM Architecture](docs/security/wazuh-siem.md)
 - [Local AI Security Boundary](docs/security/local-ai-security-boundary.md)
 
-Later stages will add ADRs, case studies, portfolio summaries, and selected sanitized implementation examples.
 
 ## Case Studies
 
@@ -173,7 +172,6 @@ Later stages will add ADRs, case studies, portfolio summaries, and selected sani
 - [Publication Readiness Review](docs/governance/publication-readiness-review.md)
 - [Changelog](CHANGELOG.md)
 - [Release Notes 1.0.0](RELEASE-NOTES-1.0.0.md)
-- [First Public Git Commit](GIT-FIRST-COMMIT.md)
 
 ## Technologies
 
