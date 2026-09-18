@@ -22,7 +22,7 @@ backups/
 backup/
 restore/
 restore-tests/
-recovery/
+/recovery/
 *.bak
 *.backup
 *.dump
