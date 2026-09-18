@@ -184,7 +184,6 @@ Additional validated case studies and technical domains will be added as the und
 - [Skills Demonstrated](portfolio/skills-demonstrated.md)
 - [Project Evolution](portfolio/project-evolution.md)
 - [LinkedIn / Portfolio Source Material](portfolio/linkedin-source-material.md)
-- [GitHub Profile Summary](portfolio/github-profile-summary.md)
 
 ## Sanitized Examples
 

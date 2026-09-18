@@ -262,7 +262,7 @@ That evidence becomes the quantitative "before" side of the eventual before/afte
 
 ## Related Documentation
 
-- [Observability Modernization](homelab-security-portfolio-stage7/case-studies/observability-modernization/README.md)
+- [Observability Modernization](README.md)
 - [Architecture Decision Framework](architecture-decision.md)
 - [Migration and Validation Plan](migration.md)
 - [Zero Trust Ingress](../../docs/platform/zero-trust-ingress.md)
