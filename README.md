@@ -157,8 +157,8 @@ See [Network Segmentation](docs/architecture/network-segmentation.md).
 - [Project Summary](portfolio/project-summary.md)
 - [Skills Demonstrated](portfolio/skills-demonstrated.md)
 - [Project Evolution](portfolio/project-evolution.md)
-- [LinkedIn / Portfolio Source Material](portfolio/linkedin-source-material.md)
-- [GitHub Profile Summary](portfolio/github-profile-summary.md)
+- [LinkedIn / Portfolio Source Material](Publishing/linkedin-source-material.md)
+- [GitHub Profile Summary](github-profile-summary.md)
 
 ## Sanitized Examples
 
