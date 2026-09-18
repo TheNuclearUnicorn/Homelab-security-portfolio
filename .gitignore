@@ -70,3 +70,14 @@ desktop.ini
 .private/
 working/
 drafts-private/
+
+# Obsidian / vault metadata safety boundary
+.obsidian/
+.trash/
+*.canvas
+
+# Private/local working material
+_private/
+private/
+drafts/
+working/
