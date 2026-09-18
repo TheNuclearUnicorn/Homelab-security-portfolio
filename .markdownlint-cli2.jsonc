@@ -5,7 +5,9 @@
     "MD010": true,
     "MD018": true,
     "MD019": true,
-    "MD025": true,
+    "MD025": {
+      "front_matter_title": ""
+    }
     "MD040": true,
     "MD047": true
   },
