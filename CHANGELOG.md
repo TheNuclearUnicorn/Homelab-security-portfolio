@@ -4,6 +4,22 @@ This changelog records public-portfolio documentation releases, not production i
 
 ## [Unreleased]
 
+### Added
+
+- automated documentation QA for pull requests and `main`;
+- repository-owned sanitization, secret-pattern, lifecycle, whitespace, and relative-link validation;
+- repository-owned Markdown structure checks in GitHub Actions;
+- completed backup migration case study;
+- Wazuh integration and OPNsense `reply-to` troubleshooting case study;
+- branded GitHub-native README header and QA status badge.
+
+### Changed
+
+- case-study navigation expanded;
+- stale "later stages" wording removed from the README;
+- obsolete first-commit handoff link removed from the README;
+- ADR front matter/body indentation normalized after QA exposed invalid formatting.
+
 - Observability `after` documentation remains blocked pending runtime validation.
 - Full ICS/OT, Red Team, VLAN60 AI, and semantic RAG documentation remains blocked pending implementation and validation.
 

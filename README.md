@@ -1,4 +1,26 @@
-# Homelab Security Portfolio
+<p align="center">
+  <a href="https://github.com/TheNuclearUnicorn">
+    <img src="https://github.com/TheNuclearUnicorn.png?size=160" width="128" alt="The Nuclear Unicorn">
+  </a>
+</p>
+
+<h1 align="center">Homelab Security Portfolio</h1>
+
+<p align="center">
+  <strong>Nuclear-grade cybersecurity engineering in a segmented homelab and cyber range.</strong>
+</p>
+
+<p align="center">
+  Network Segmentation • Zero Trust • DevSecOps • Recovery • SIEM • Local AI • ICS/OT
+</p>
+
+<p align="center">
+  <a href="https://github.com/TheNuclearUnicorn/Homelab-security-portfolio/actions/workflows/docs-quality.yml">
+    <img src="https://github.com/TheNuclearUnicorn/Homelab-security-portfolio/actions/workflows/docs-quality.yml/badge.svg?branch=main" alt="Documentation QA">
+  </a>
+  <img src="https://img.shields.io/github/license/TheNuclearUnicorn/Homelab-security-portfolio" alt="License: MIT">
+  <img src="https://img.shields.io/badge/publication-sanitized%20derivative-2f6f9f" alt="Publication: sanitized derivative">
+</p>
 
 A sanitized public documentation set derived from a privately operated, security-focused homelab, DevOps platform, local AI environment, and ICS/OT cyber-range program.
 
@@ -142,9 +164,13 @@ See [Network Segmentation](docs/architecture/network-segmentation.md).
 - [Wazuh SIEM Architecture](docs/security/wazuh-siem.md)
 - [Local AI Security Boundary](docs/security/local-ai-security-boundary.md)
 
+Additional validated case studies and technical domains will be added as the underlying environment evolves.
 
 ## Case Studies
 
+- [Case Study Index](case-studies/README.md)
+- [Backup Migration](case-studies/backup-migration/README.md) — completed move from same-host protection to an encrypted, fail-closed external Restic tier with restore validation.
+- [Wazuh Integration](case-studies/wazuh-integration/README.md) — segmented SIEM deployment, OPNsense `reply-to` troubleshooting, agent telemetry, and firewall-log integration.
 - [Observability Modernization](case-studies/observability-modernization/README.md) — pre-modernization baseline and migration framework; validated `after` state intentionally withheld pending implementation.
 
 ## Architecture Decision Records
@@ -157,8 +183,8 @@ See [Network Segmentation](docs/architecture/network-segmentation.md).
 - [Project Summary](portfolio/project-summary.md)
 - [Skills Demonstrated](portfolio/skills-demonstrated.md)
 - [Project Evolution](portfolio/project-evolution.md)
-- [LinkedIn / Portfolio Source Material](Publishing/linkedin-source-material.md)
-- [GitHub Profile Summary](github-profile-summary.md)
+- [LinkedIn / Portfolio Source Material](portfolio/linkedin-source-material.md)
+- [GitHub Profile Summary](portfolio/github-profile-summary.md)
 
 ## Sanitized Examples
 
@@ -172,6 +198,20 @@ See [Network Segmentation](docs/architecture/network-segmentation.md).
 - [Publication Readiness Review](docs/governance/publication-readiness-review.md)
 - [Changelog](CHANGELOG.md)
 - [Release Notes 1.0.0](RELEASE-NOTES-1.0.0.md)
+
+## Automated Documentation QA
+
+Every pull request and every push to `main` runs a documentation-quality workflow that checks:
+
+- known private/live infrastructure identifiers;
+- common secret patterns;
+- broken relative Markdown links;
+- required public portfolio paths;
+- public lifecycle/front-matter status values;
+- trailing whitespace;
+- Markdown structure and style.
+
+The repository-owned validator is [scripts/validate_publication.py](scripts/validate_publication.py), and the workflow is defined in [.github/workflows/docs-quality.yml](.github/workflows/docs-quality.yml).
 
 ## Technologies
 
