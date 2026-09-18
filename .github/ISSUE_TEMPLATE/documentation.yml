@@ -1,0 +1,34 @@
+name: Documentation issue
+description: Report a public documentation error or inconsistency
+title: "[Docs]: "
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include secrets, live operational endpoints, or suspected leaked credentials in a public issue. See SECURITY.md for sensitive disclosures.
+  - type: textarea
+    id: issue
+    attributes:
+      label: Issue
+      description: What appears incorrect, unclear, inconsistent, or broken?
+    validations:
+      required: true
+  - type: input
+    id: document
+    attributes:
+      label: Document
+      description: Relative repository path if known.
+  - type: textarea
+    id: suggested
+    attributes:
+      label: Suggested correction
+      description: Optional proposed wording or correction.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Publication safety
+      options:
+        - label: I have not included passwords, tokens, keys, live private addresses, or other sensitive operational values.
+          required: true

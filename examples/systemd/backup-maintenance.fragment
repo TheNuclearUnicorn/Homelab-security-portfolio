@@ -1,0 +1,11 @@
+# SANITIZED FRAGMENT — not a complete unit file.
+# Demonstrates the fail-closed precondition used before repository maintenance.
+
+[Service]
+Type=oneshot
+Environment=HOME=/root
+ExecStartPre=<VERIFY_BACKUP_MOUNT>
+ExecStart=<RESTIC_MAINTENANCE_SCRIPT>
+
+# The associated maintenance timer is intentionally non-persistent so a
+# missed destructive prune does not automatically catch up after downtime.

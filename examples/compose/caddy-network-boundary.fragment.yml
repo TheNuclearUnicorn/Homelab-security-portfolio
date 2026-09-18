@@ -1,0 +1,20 @@
+# SANITIZED FRAGMENT — not a complete Compose file.
+# Demonstrates the current reverse-proxy privilege/network boundary.
+
+services:
+  reverse-proxy:
+    ports:
+      - "10.100.20.10:80:80"
+      - "10.100.20.10:443:443"
+    networks:
+      - infra_net
+      - apps_net
+
+    # Intentionally absent:
+    #   /var/run/docker.sock
+
+networks:
+  infra_net:
+    external: true
+  apps_net:
+    external: true

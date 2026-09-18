@@ -1,0 +1,72 @@
+# Secrets and environment files
+.env
+.env.*
+*.env
+*.secret
+*.secrets
+secrets/
+credentials/
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+authorized_keys
+
+# Backup / recovery / state
+backups/
+backup/
+restore/
+restore-tests/
+recovery/
+*.bak
+*.backup
+*.dump
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+*.tar
+*.tgz
+*.gz
+*.7z
+*.zip
+
+# Restic / repository state
+restic/
+restic-repo/
+*.restic
+
+# Application / container state
+appdata/
+data/
+volumes/
+postgres-data/
+meilisearch-data/
+
+# AI-derived state
+models/
+embeddings/
+vector/
+vectors/
+indexes/
+cache/
+logs/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.tmp
+
+# Local publication work
+.private/
+working/
+drafts-private/

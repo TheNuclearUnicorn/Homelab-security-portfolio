@@ -1,0 +1,13 @@
+flowchart LR
+    User["External user/admin"]
+    Access["Cloudflare Access"]
+    Edge["Approved tunnel connector"]
+    FW["FW-01"]
+    Proxy["Caddy / privileged origin"]
+    Service["Target service"]
+
+    User --> Access
+    Access --> Edge
+    Edge --> FW
+    FW --> Proxy
+    Proxy --> Service

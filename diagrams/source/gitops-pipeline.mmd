@@ -1,0 +1,17 @@
+flowchart LR
+    Dev["Administrator"]
+    Repo["Forgejo<br/>approved main"]
+    CI["CI-01<br/>isolated validation"]
+    Gate["restricted deployment gate"]
+    Backup["pre-deployment backup"]
+    Prod["DOCKER-01"]
+    Health["health validation"]
+    Rollback["rollback"]
+
+    Dev --> Repo
+    Repo --> CI
+    CI --> Gate
+    Gate --> Backup
+    Backup --> Prod
+    Prod --> Health
+    Health -->|"failure"| Rollback

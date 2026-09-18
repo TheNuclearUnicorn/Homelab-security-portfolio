@@ -1,0 +1,19 @@
+flowchart TD
+    Internet["Internet"]
+    Cloudflare["Cloudflare Access / Tunnel"]
+    Edge["EDGE-GW-01<br/>Edge gateway / NAT / connector"]
+    FW["FW-01<br/>OPNsense"]
+    Docker["DOCKER-01<br/>VLAN20 Applications"]
+    CI["CI-01<br/>VLAN70 CI"]
+    SIEM["SIEM-01<br/>VLAN99 Security"]
+    OT["VLAN30 / VLAN40 / VLAN95<br/>Cyber-range zones"]
+    AI["VLAN60 AI<br/>Target placement"]
+
+    Internet --> Cloudflare
+    Cloudflare --> Edge
+    Edge --> FW
+    FW --> Docker
+    FW --> CI
+    FW --> SIEM
+    FW -. planned workload maturity .-> OT
+    FW -. target placement .-> AI
