@@ -12,7 +12,7 @@ This changelog records public-portfolio documentation releases, not production i
 - completed backup migration case study;
 - Wazuh integration and OPNsense `reply-to` troubleshooting case study;
 - branded GitHub-native README header and QA status badge.
-
+- public portfolio refresh governance linking validated private runbook changes to sanitized public documentation and AI source-pack refresh;
 ### Changed
 
 - case-study navigation expanded;

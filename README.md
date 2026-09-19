@@ -194,9 +194,11 @@ Additional validated case studies and technical domains will be added as the und
 
 - [Publication Checklist](PUBLICATION-CHECKLIST.md)
 - [Public Documentation Governance](docs/governance/documentation-governance.md)
+- [Portfolio Refresh Policy](docs/governance/portfolio-refresh-policy.md)
 - [Publication Readiness Review](docs/governance/publication-readiness-review.md)
 - [Changelog](CHANGELOG.md)
 - [Release Notes 1.0.0](RELEASE-NOTES-1.0.0.md)
+
 
 ## Automated Documentation QA
 
