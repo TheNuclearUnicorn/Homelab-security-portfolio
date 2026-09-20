@@ -175,7 +175,7 @@ Additional validated case studies and technical domains will be added as the und
 - [Backup Migration](case-studies/backup-migration/README.md) — completed move from same-host protection to an encrypted, fail-closed external Restic tier with restore validation.
 - [Wazuh Integration](case-studies/wazuh-integration/README.md) — segmented SIEM deployment, OPNsense `reply-to` troubleshooting, agent telemetry, and firewall-log integration.
 - [Observability Modernization](case-studies/observability-modernization/README.md) — pre-modernization baseline and migration framework; validated `after` state intentionally withheld pending implementation.
-
+- [Public Website Delivery](case-studies/public-website-delivery/README.md) — Astro static-site delivery through GitHub Actions and GitHub Pages, with Cloudflare-managed custom-domain DNS and deliberate separation from private homelab ingress.
 ## Architecture Decision Records
 
 - [Architecture Decision Record Index](adrs/README.md)

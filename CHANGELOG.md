@@ -14,7 +14,7 @@ This changelog records public-portfolio documentation releases, not production i
 - branded GitHub-native README header and QA status badge.
 - public portfolio refresh governance linking validated private runbook changes to sanitized public documentation and AI source-pack refresh;
 - controlled Homelab knowledge/RAG documentation covering deterministic default-deny export, durable provenance/state, profile-aware retrieval, stale/deleted/disabled-domain denial, prompt-injection boundary testing, and corpus rebuild/rollback validation;
-
+- public website delivery case study covering Astro build automation, GitHub Pages deployment, Cloudflare-managed custom-domain DNS, repository cleanup, and migration away from a private website ingress path;
 ### Changed
 
 - case-study navigation expanded;
