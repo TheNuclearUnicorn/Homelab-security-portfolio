@@ -1,30 +1,30 @@
 ---
 
-title: "Public Website Delivery Case Study"  
-document_id: "HSP-CS-004"  
-document_type: "case-study"  
-status: "case-study"  
-environment: "sanitized-public-derivative"  
-last_reviewed: "2026-09-20"  
-sanitization: "operational-identifiers-substituted"  
+title: "Public Website Delivery Case Study"
+document_id: "HSP-CS-004"
+document_type: "case-study"
+status: "case-study"
+environment: "sanitized-public-derivative"
+last_reviewed: "2026-09-20"
+sanitization: "operational-identifiers-substituted"
 tags:
 
 - astro
-    
+
 - github-pages
-    
+
 - github-actions
-    
+
 - cloudflare
-    
+
 - dns
-    
+
 - ci-cd
-    
+
 - static-site
-    
+
 - custom-domain
-    
+
 
 ---
 # Public Website Delivery — Astro, GitHub Pages, Cloudflare DNS, and CI/CD
