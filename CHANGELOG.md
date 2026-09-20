@@ -14,6 +14,7 @@ This changelog records public-portfolio documentation releases, not production i
 - branded GitHub-native README header and QA status badge.
 - public portfolio refresh governance linking validated private runbook changes to sanitized public documentation and AI source-pack refresh;
 - controlled Homelab knowledge/RAG documentation covering deterministic default-deny export, durable provenance/state, profile-aware retrieval, stale/deleted/disabled-domain denial, prompt-injection boundary testing, and corpus rebuild/rollback validation;
+- accepted Prompt 03 bounded Homelab orchestration documentation, including deterministic routing, five profile-scoped agents, auditable route decisions, provenance validation, prompt-injection/data-boundary enforcement, and rollback to the prior direct read-only MCP baseline;
 - public website delivery case study covering Astro build automation, GitHub Pages deployment, Cloudflare-managed custom-domain DNS, repository cleanup, and migration away from a private website ingress path;
 ### Changed
 
@@ -24,10 +25,15 @@ This changelog records public-portfolio documentation releases, not production i
 - local AI security-boundary documentation promoted from a basic read-only MCP description to the accepted controlled knowledge-ingestion and retrieval baseline;
 - project maturity and evolution documentation updated to show provenance/refresh/recovery behavior as implemented rather than future work;
 - semantic/vector retrieval reclassified from an unfinished requirement to a deliberately deferred design option pending measured need;
-- future AI work now centers on domain-routing/provenance orchestration, one-domain-at-a-time expansion, and VLAN60 placement rather than completion of the accepted Homelab retrieval baseline.
+- domain-routing/provenance orchestration promoted from planned work to current validated Homelab-only capability;
+- local AI architecture updated so the model-facing tool surface routes through a bounded orchestration layer while the original Prompt 02 read-only retrieval MCP remains independently testable;
+- future AI work narrowed to controlled additional-domain onboarding, VLAN60 placement/monitoring, and semantic/vector retrieval only if later evidence justifies it;
+- portfolio skills evidence expanded to include deterministic AI routing, agent/profile isolation, provenance enforcement, negative security testing, and orchestration recovery.
+
+- future AI work now centers on controlled additional-domain onboarding and VLAN60 placement rather than completion of the accepted Homelab retrieval or orchestration baselines;
 
 - Observability `after` documentation remains blocked pending runtime validation.
-- Full ICS/OT, Red Team, VLAN60 AI placement, and domain-routing/provenance expansion remain blocked pending implementation and validation; semantic/vector retrieval is intentionally deferred unless a later decision gate demonstrates material value.
+- Full ICS/OT, Red Team, VLAN60 AI placement, and expansion beyond the Homelab knowledge domain remain blocked pending implementation and validation; semantic/vector retrieval is intentionally deferred unless a later decision gate demonstrates material value.
 
 ## [1.0.0] - 2026-09-18
 

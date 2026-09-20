@@ -4,7 +4,7 @@ document_id: "HSP-ARCH-004"
 document_type: "architecture"
 status: "current-verified"
 environment: "sanitized-public-derivative"
-last_reviewed: "2026-09-20"
+last_reviewed: "2026-09-21"
 sanitization: "operational-identifiers-substituted"
 tags:
   - security
@@ -140,6 +140,10 @@ The local AI environment may inspect approved derived data through a constrained
 
 The live canonical knowledge source is not exposed directly to the model-facing retrieval boundary. Domain access is explicit and fail-closed rather than inferred from semantic similarity.
 
+The current model-facing architecture also uses deterministic bounded orchestration. A request is routed only to an approved Homelab agent and retrieval profile, with provenance validation retained underneath the routing layer.
+
+The orchestration layer does not replace or bypass the read-only retrieval boundary.
+
 It must not gain unrestricted capability to:
 
 - write authoritative documentation;
@@ -169,6 +173,11 @@ backup fails with invalid mount
 read-only AI retrieval succeeds
 stale/deleted current-state retrieval fails
 disabled-domain retrieval fails
+approved orchestration route succeeds
+unsupported-domain route fails
+cross-domain route without approval fails
+agent/profile boundary violation fails
+orchestration rollback preserves read-only retrieval baseline
 AI write/execute capability remains unavailable
 ```
 
@@ -212,9 +221,11 @@ Public documentation uses explicit state labels.
 - **Historical baseline** preserves useful engineering evidence but is not current.
 - **Planned** describes future work only.
 
-Grafana/Prometheus modernization, full ICS/OT range completion, Red Team integration, VLAN60 AI placement, and domain-routing/provenance orchestration are not represented as current until validated.
+Grafana/Prometheus modernization, full ICS/OT range completion, Red Team integration, VLAN60 AI placement, and expansion beyond the Homelab knowledge domain are not represented as current until validated.
 
 The controlled Homelab knowledge/RAG baseline is current and validated. Semantic/vector retrieval remains deliberately deferred unless a later decision gate demonstrates material value.
+
+Bounded Homelab orchestration is current and validated. It uses deterministic routing, bounded agent/profile selection, provenance enforcement, negative testing, and rollback to the prior direct read-only MCP baseline.
 
 ## 14. Sanitization Must Preserve Engineering Value
 
