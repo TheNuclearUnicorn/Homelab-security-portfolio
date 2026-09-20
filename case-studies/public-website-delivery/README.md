@@ -27,7 +27,6 @@ tags:
     
 
 ---
-
 # Public Website Delivery — Astro, GitHub Pages, Cloudflare DNS, and CI/CD
 
 > **State:** Completed. The production website is delivered as a static Astro site through GitHub Actions and GitHub Pages. Cloudflare remains the DNS authority for the custom domain, while the website delivery path remains separate from private homelab application ingress.
@@ -79,19 +78,12 @@ The website needed to move to a static hosting platform without disturbing unrel
 At the same time, the website repository had accumulated deployment ambiguity and source-control hygiene issues:
 
 - more than one GitHub Pages deployment path existed;
-    
 - the authoritative Astro workflow was not initially the only Pages workflow;
-    
 - generated site artifacts had been committed previously;
-    
 - dependency directories had been tracked;
-    
 - local and remote Git history required reconciliation;
-    
 - the apex website hostname had previously participated in a different delivery path;
-    
 - DNS, Pages custom-domain validation, and HTTPS had to converge before the migration could be considered complete.
-    
 
 The objective was therefore broader than making the website reachable.
 
@@ -369,7 +361,5 @@ A successful build, a valid DNS response, and an issued certificate each prove d
 ## Related Documentation
 
 - [Security Design Principles](https://chatgpt.com/g/docs/architecture/security-design-principles.md)
-    
 - [Portfolio Refresh Policy](https://chatgpt.com/g/docs/governance/portfolio-refresh-policy.md)
-    
 - [Project Summary](https://chatgpt.com/g/portfolio/project-summary.md)
