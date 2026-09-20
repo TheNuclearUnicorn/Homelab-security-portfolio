@@ -64,15 +64,23 @@ Recovery, retention, tuning, and notifications remain open maturity work.
 
 ## Local AI Boundary
 
-The local AI environment progressed from a loopback-only local model to:
+The local AI environment progressed from a loopback-only local model to a governed read-only retrieval plane with:
 
 - persistent local inference;
 - a protected loopback-only web dashboard;
 - Cloudflare-protected remote administration;
 - a root-confined read-only MCP;
-- approved derived knowledge roots.
+- a deterministic default-deny knowledge export;
+- a derived, rebuildable knowledge mirror;
+- durable provenance and lifecycle state;
+- profile-aware retrieval for operational and historical use cases;
+- stale/deleted/disabled-domain denial;
+- prompt-injection and boundary negative testing;
+- tested corpus rebuild and prior-generation rollback.
 
-The current model is intentionally not an infrastructure control plane.
+The current model is intentionally not an infrastructure control plane, and the canonical human knowledge estate is not exposed directly to the model.
+
+Semantic/vector retrieval was evaluated but deliberately deferred because the accepted lexical/profile-aware baseline met the current retrieval requirement.
 
 ## Current Transition
 
@@ -88,6 +96,8 @@ Planned work includes:
 - full ICS/OT cyber-range workload implementation;
 - Red Team exercise integration;
 - VLAN60 AI placement;
-- semantic RAG/provenance/recovery completion.
+- domain-routing and provenance orchestration;
+- controlled one-domain-at-a-time knowledge expansion;
+- semantic/vector retrieval only if a later measured requirement justifies it.
 
 These remain roadmap items until implemented and validated.

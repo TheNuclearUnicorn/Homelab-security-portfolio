@@ -16,7 +16,7 @@ The environment combines:
 - Restic backup and recovery;
 - Wazuh security monitoring;
 - Windows and Linux administration;
-- a constrained local AI platform;
+- a constrained local AI platform with controlled read-only knowledge retrieval;
 - planned ICS/OT and Red Team range zones.
 
 ## Engineering Focus
@@ -35,12 +35,12 @@ Key design themes include:
 - device-scoped administrative credentials;
 - SIEM telemetry through narrow firewall exceptions;
 - loopback-only local AI services;
-- root-confined read-only AI knowledge access;
+- root-confined, provenance-aware read-only AI knowledge access;
 - explicit current/planned/historical documentation states.
 
 ## Current Maturity
 
-The application, CI/CD, backup, Wazuh, SSH trust, and local-AI foundations are operational.
+The application, CI/CD, backup, Wazuh, SSH trust, local-AI, and controlled Homelab knowledge-retrieval foundations are operational.
 
 Open work is intentionally documented rather than hidden, including:
 
@@ -51,7 +51,9 @@ Open work is intentionally documented rather than hidden, including:
 - observability modernization;
 - full ICS/OT/Red Team range completion;
 - VLAN60 AI placement;
-- semantic RAG finalization.
+- domain-routing and provenance orchestration;
+- controlled expansion beyond the Homelab knowledge domain;
+- semantic/vector retrieval only if a later decision gate demonstrates a material need.
 
 ## Portfolio Value
 

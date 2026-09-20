@@ -39,7 +39,7 @@ This project documents the design and operation of a small enterprise-inspired l
 - independent backup and recovery using Restic;
 - Wazuh-based security monitoring;
 - Windows and Linux administrative workflows;
-- a constrained local-AI boundary with read-only knowledge access;
+- a constrained local-AI boundary with controlled, provenance-aware read-only knowledge retrieval;
 - planned ICS/OT and Red Team zones that remain explicitly separated from implemented workloads.
 
 The objective is not to present a generic collection of self-hosting tutorials. The documentation emphasizes trust boundaries, least privilege, recoverability, validation, and controlled change.
@@ -114,7 +114,7 @@ See [Network Segmentation](docs/architecture/network-segmentation.md).
 - Restic retention and isolated restore testing.
 - Wazuh agent and syslog collection through narrow network policy.
 - Windows OpenSSH with independently revocable workstation identities.
-- Local AI services bound to loopback with read-only MCP access to approved knowledge roots.
+- Local AI services bound to loopback with a bounded read-only MCP, deterministic approved-source export, provenance/state enforcement, profile-aware retrieval, and tested stale/deleted/disabled-domain denial.
 
 ## Current Maturity
 
@@ -128,7 +128,8 @@ See [Network Segmentation](docs/architecture/network-segmentation.md).
 - Wazuh operational foundation;
 - multi-workstation administrative model;
 - Windows-native local AI with loopback-only model/dashboard listeners;
-- read-only knowledge MCP boundary.
+- read-only knowledge MCP boundary;
+- accepted controlled Homelab RAG baseline with deterministic export, provenance/state enforcement, profile-aware retrieval, negative security testing, and rebuild/rollback.
 
 ### Current with open hardening or maturity work
 
@@ -144,7 +145,9 @@ See [Network Segmentation](docs/architecture/network-segmentation.md).
 - full ICS/OT cyber-range implementation;
 - Red Team exercise integration;
 - migration of local AI into the dedicated VLAN60 trust zone;
-- semantic RAG/vector retrieval finalization.
+- domain-routing and provenance orchestration;
+- controlled expansion beyond the Homelab knowledge domain;
+- semantic/vector retrieval only if a later decision gate demonstrates a material need.
 
 ## Repository Navigation
 
@@ -216,7 +219,7 @@ The repository-owned validator is [scripts/validate_publication.py](scripts/vali
 
 ## Technologies
 
-Representative technologies include OPNsense, Proxmox, Docker, Caddy, Cloudflare Access/Tunnel, Forgejo, Forgejo Actions, Restic, SMB 3.1.1, systemd, Wazuh, Windows OpenSSH, Ollama, Hermes, and a custom read-only MCP service.
+Representative technologies include OPNsense, Proxmox, Docker, Caddy, Cloudflare Access/Tunnel, Forgejo, Forgejo Actions, Restic, SMB 3.1.1, systemd, Wazuh, Windows OpenSSH, Ollama, Hermes, a custom read-only MCP service, and a deterministic provenance-aware knowledge export/retrieval pipeline.
 
 ## Scope
 

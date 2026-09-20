@@ -4,7 +4,7 @@ document_id: "HSP-ARCH-004"
 document_type: "architecture"
 status: "current-verified"
 environment: "sanitized-public-derivative"
-last_reviewed: "2026-09-18"
+last_reviewed: "2026-09-20"
 sanitization: "operational-identifiers-substituted"
 tags:
   - security
@@ -136,7 +136,9 @@ This supports per-device revocation and reduces the blast radius of workstation 
 
 ## 9. AI Is Not an Infrastructure Control Plane
 
-The local AI environment may inspect approved derived data through a constrained interface.
+The local AI environment may inspect approved derived data through a constrained, profile-aware interface backed by deterministic export and provenance/state controls.
+
+The live canonical knowledge source is not exposed directly to the model-facing retrieval boundary. Domain access is explicit and fail-closed rather than inferred from semantic similarity.
 
 It must not gain unrestricted capability to:
 
@@ -165,6 +167,8 @@ interactive CI shell fails
 backup succeeds with valid mount
 backup fails with invalid mount
 read-only AI retrieval succeeds
+stale/deleted current-state retrieval fails
+disabled-domain retrieval fails
 AI write/execute capability remains unavailable
 ```
 
@@ -208,7 +212,9 @@ Public documentation uses explicit state labels.
 - **Historical baseline** preserves useful engineering evidence but is not current.
 - **Planned** describes future work only.
 
-Grafana/Prometheus modernization, full ICS/OT range completion, Red Team integration, VLAN60 AI placement, and semantic RAG are not represented as current until validated.
+Grafana/Prometheus modernization, full ICS/OT range completion, Red Team integration, VLAN60 AI placement, and domain-routing/provenance orchestration are not represented as current until validated.
+
+The controlled Homelab knowledge/RAG baseline is current and validated. Semantic/vector retrieval remains deliberately deferred unless a later decision gate demonstrates material value.
 
 ## 14. Sanitization Must Preserve Engineering Value
 
