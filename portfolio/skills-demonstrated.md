@@ -13,7 +13,7 @@
 | CI/CD security           | isolated runner, DinD, restricted deployment authority                                         |
 | Backup / DR              | application-aware staging, SMB encryption, Restic, restore testing                             |
 | SIEM                     | Wazuh agents, firewall logs, protected administrative access                                   |
-| Local AI security        | loopback-only model services, read-only MCP, restricted tool surface                           |
+| Local AI security        | loopback-only model services, bounded MCP surfaces, deterministic agent routing, provenance enforcement, negative testing, orchestration rollback |
 | Documentation governance | source precedence, lifecycle states, ADRs, sanitized publication                               |
 | Troubleshooting          | dependency-chain inspection before architectural changes                                       |
 | Change control           | backups, snapshots, staged changes, rollback validation                                        |

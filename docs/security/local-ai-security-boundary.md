@@ -4,7 +4,7 @@ document_id: "HSP-SEC-003"
 document_type: "security-architecture"
 status: "current-with-open-items"
 environment: "sanitized-public-derivative"
-last_reviewed: "2026-09-20"
+last_reviewed: "2026-09-21"
 sanitization: "operational-identifiers-substituted"
 tags:
   - local-ai
@@ -16,7 +16,7 @@ tags:
 
 # Local AI Security Boundary
 
-> **Status:** Current Windows-native local AI and controlled Homelab knowledge-retrieval baseline are operational. VLAN60 placement and broader domain-routing/provenance orchestration remain planned. Semantic/vector retrieval was evaluated and deliberately deferred.
+> **Status:** Current Windows-native local AI, controlled Homelab knowledge retrieval, and bounded Homelab orchestration are operational. VLAN60 placement and expansion beyond the Homelab knowledge domain remain planned. Semantic/vector retrieval remains deliberately deferred.
 
 ## Purpose
 
@@ -37,10 +37,12 @@ flowchart TD
     Access["Cloudflare Access"]
     Tunnel["Host-local Cloudflare Tunnel"]
     Dashboard["Hermes dashboard<br/>loopback only"]
-    Model["Ollama<br/>loopback only"]
-    MCP["bounded read-only MCP<br/>local stdio"]
-    Retrieval["profile-aware retrieval"]
-    Mirror["derived knowledge mirror"]
+    Model["Local model runtime<br/>loopback only"]
+    Orchestrator["bounded orchestration MCP<br/>single read-only routing entry point"]
+    Router["deterministic routing policy"]
+    Agents["five bounded Homelab agents<br/>profile scoped"]
+    Retrieval["read-only retrieval MCP"]
+    Mirror["derived Homelab knowledge mirror"]
     Controls["provenance / lifecycle state"]
     Canonical["canonical human knowledge<br/>not model-visible"]
 
@@ -48,8 +50,10 @@ flowchart TD
     Access --> Tunnel
     Tunnel --> Dashboard
     Dashboard --> Model
-    Dashboard --> MCP
-    MCP --> Retrieval
+    Dashboard --> Orchestrator
+    Orchestrator --> Router
+    Router --> Agents
+    Agents --> Retrieval
     Retrieval --> Mirror
     Retrieval --> Controls
     Canonical -->|"controlled default-deny export"| Mirror
@@ -59,6 +63,8 @@ flowchart TD
 The AI runtime currently shares `ADMIN-WS-01` with other administrative roles. It is not represented as already migrated into VLAN60.
 
 The live canonical knowledge estate is not exposed directly to the model or MCP service. Retrieval operates against a derived, rebuildable mirror plus copied control metadata used for provenance and lifecycle enforcement.
+
+The accepted Prompt 02 retrieval boundary remains independently testable beneath the orchestration layer. The orchestration service does not read the canonical human knowledge estate directly and does not bypass the read-only retrieval MCP.
 
 ## Model Runtime Boundary
 
@@ -85,29 +91,35 @@ The dashboard is treated as a privileged management surface rather than as a nor
 
 ## Tool-Surface Restriction
 
-The validated dashboard process is explicitly restricted to the approved read-only MCP surface.
+The validated dashboard process is now explicitly restricted to a bounded orchestration MCP.
 
-Broad native tool families are not exposed to the validated model session.
+The model-facing orchestration surface exposes one read-only routing entry point rather than the underlying retrieval functions directly.
 
-The allowed MCP service exposes only:
+The orchestrator may:
 
 ```text
-list approved sources
-read approved knowledge file
-search approved knowledge
+classify an approved Homelab knowledge request
+select one bounded agent
+select the corresponding retrieval profile
+request read-only retrieval
+validate provenance
+return the bounded result
 ```
 
-It does not expose:
+It may not:
 
-- write/create/patch;
-- delete/rename/move;
-- shell or PowerShell;
-- process execution;
-- browser control;
-- desktop control;
-- arbitrary host-path reads;
-- network scanning;
-- infrastructure actions.
+- write/create/patch files;
+- delete/rename/move files;
+- execute shell or PowerShell;
+- start processes;
+- control a browser or desktop;
+- scan networks;
+- modify infrastructure;
+- bypass the retrieval MCP;
+- read the live canonical vault directly;
+- enable another knowledge domain implicitly.
+
+Broad native Hermes tool families remain outside the validated persistent tool surface.
 
 ## Read-Only MCP Boundary
 
@@ -127,6 +139,42 @@ Security validation covered:
 
 The MCP service is therefore a data-inspection boundary, not a file-management interface.
 
+## Bounded Orchestration Layer
+
+Prompt 03 added a deterministic routing layer above the accepted read-only retrieval boundary.
+
+Five Homelab agents are enabled by function:
+
+```text
+current-state
+planning
+troubleshooting
+recovery
+reconciliation
+```
+
+Each agent is bound to an approved retrieval profile rather than receiving general corpus access.
+
+Routing decisions are auditable and include enough state to reconstruct:
+
+- selected domain;
+- selected agent;
+- selected retrieval profile;
+- provenance outcome;
+- denial reason when routing fails closed.
+
+The router does not infer permission from semantic similarity.
+
+The only enabled knowledge domain remains:
+
+```text
+Homelab
+```
+
+Other domains remain disabled until separately approved and validated.
+
+This prevents the orchestration layer from turning cross-domain similarity into authorization.
+
 ## Untrusted Retrieved Content
 
 Retrieved documents are treated as untrusted data.
@@ -134,6 +182,10 @@ Retrieved documents are treated as untrusted data.
 A document can describe a command or instruct an operator to modify infrastructure, but that text does not become model authority to execute the command or widen permissions.
 
 Runtime evidence and validated runbooks remain higher-precedence operational sources.
+
+Routing does not change this trust rule. An agent selection, retrieval profile, or provenance result cannot make retrieved instructions executable.
+
+Prompt-injection validation therefore covers both the retrieval layer and the orchestration path.
 
 ## Current Remote-Access Controls
 
@@ -195,6 +247,10 @@ Current-state retrieval specifically rejects records that are no longer eligible
 
 Retrieved text remains untrusted data. A retrieved document cannot grant itself tool authority, execute a command, widen a filesystem boundary, or convert planning content into implemented runtime state.
 
+Prompt 03 did not replace this baseline.
+
+Instead, it composes the accepted retrieval controls into a higher-level orchestration path while leaving the original retrieval MCP independently testable and unchanged in authority.
+
 ### Semantic / Vector Retrieval Decision
 
 A semantic/vector backend was evaluated but is not part of the accepted baseline.
@@ -203,7 +259,7 @@ The validated lexical/profile-aware design met the current Homelab retrieval req
 
 Vector retrieval is therefore **deferred by design**, not an unfinished prerequisite.
 
-It should be reconsidered only if measured retrieval quality, corpus heterogeneity, or a later approved routing/orchestration use case demonstrates a material need.
+Prompt 03 did not demonstrate a material need for semantic/vector retrieval. No vector backend or embedding model was approved. The decision remains deferred and should be reconsidered only when measured retrieval quality or future corpus heterogeneity justifies the additional complexity.
 
 ## VLAN60 Target State
 
@@ -249,6 +305,24 @@ prompt-injection-triggered shell execution -> DENIED
 derived-corpus rebuild -> PASS
 prior-generation rollback -> PASS
 reboot recovery -> PASS
+
+bounded orchestration MCP -> PASS
+single model-facing routing entry point -> PASS
+deterministic route selection -> PASS
+current/planning/troubleshooting/recovery/reconciliation agent selection -> PASS
+retrieval-profile binding -> PASS
+provenance validation through orchestrated path -> PASS
+
+unsupported-domain route -> DENIED
+cross-domain route without approval -> DENIED
+profile/lifecycle boundary violation -> DENIED
+prompt-injection-triggered execution -> DENIED
+direct live-vault access through router -> unavailable
+direct corpus bypass by agent -> unavailable
+
+orchestration rebuild -> PASS
+rollback to direct read-only MCP baseline -> PASS
+restore accepted orchestrated state -> PASS
 ```
 
 ## Troubleshooting
@@ -256,37 +330,43 @@ reboot recovery -> PASS
 Inspect in this order:
 
 ```text
-Ollama service/listener
+local model service/listener
 Hermes process/listener
 dashboard authentication
 Cloudflare tunnel/service
-process-scoped tool restriction
-MCP registration
-MCP stdio process
-approved root existence
-path-policy validation
+process-scoped orchestration tool restriction
+orchestration MCP registration
+routing policy
+agent/profile mapping
+read-only retrieval MCP
+approved derived root existence
+provenance/state validation
 model request
 ```
 
 Do not expose Ollama or Hermes on `0.0.0.0` merely to work around a tunnel or dashboard problem.
 
+If orchestration fails while the underlying read-only retrieval MCP remains healthy, troubleshoot or roll back the orchestration layer rather than widening the retrieval boundary.
+
 ## Rollback / Recovery
 
 Recovery boundaries are intentionally staged:
 
-1. restore the known-good local Ollama runtime;
+1. restore the known-good local model runtime;
 2. restore the known-good Hermes configuration;
-3. restore the validated bounded read-only MCP service;
-4. rebuild the derived knowledge mirror from approved canonical sources;
-5. validate provenance/state metadata before publication;
-6. validate profile-aware retrieval and negative tests;
-7. if the new generation fails acceptance, restore the prior accepted derived generation;
-8. validate local restricted inference;
-9. restore persistent dashboard startup;
+3. restore the accepted Prompt 02 read-only retrieval MCP;
+4. rebuild and validate the derived Homelab knowledge mirror and provenance state;
+5. validate direct read-only retrieval;
+6. rebuild the bounded orchestration configuration;
+7. validate deterministic routing, agent/profile binding, provenance, and negative tests;
+8. restore the process-scoped orchestration MCP to the dashboard;
+9. validate local restricted inference;
 10. restore protected remote access;
-11. revalidate the restricted tool surface.
+11. revalidate the full orchestrated tool surface.
 
-This keeps the derived AI corpus rebuildable and prevents recovery of the model-facing layer from redefining canonical human-source authority.
+If orchestration cannot be recovered safely, the validated rollback state is the prior direct read-only MCP baseline.
+
+Prompt 03 recovery testing demonstrated that an orchestration failure does not mutate the accepted Prompt 02 corpus/state and that both the prior direct-MCP state and the accepted orchestrated state can be restored.
 
 ## Security Considerations
 
@@ -315,17 +395,23 @@ A useful RAG boundary is not defined only by whether retrieval works. It is defi
 
 For this environment, a smaller lexical/profile-aware baseline with explicit provenance was preferable to adding vector infrastructure before a measured retrieval need justified it.
 
+Agent decomposition is not itself a security control.
+
+The useful control is deterministic binding between a permitted request, a bounded agent, an approved retrieval profile, provenance validation, and a fail-closed result.
+
+Keeping the original retrieval MCP independently testable also creates a practical recovery boundary: orchestration can fail or be removed without redefining the underlying knowledge authority.
+
 ## Future Work
 
 The following remain planned rather than implemented:
 
-- domain-routing and provenance orchestration;
 - controlled expansion beyond the Homelab domain;
-- independent policy and negative tests for each newly approved domain;
+- isolated policy and negative testing for each newly approved domain;
 - dedicated VLAN60 placement and policy validation;
+- broader monitoring appropriate to the local-AI runtime;
 - semantic/vector retrieval only if a later decision gate demonstrates a material requirement.
 
-Personal content remains outside general AI retrieval. Other domains remain disabled until explicitly approved.
+Personal content remains outside general AI retrieval. Additional knowledge domains remain disabled until explicitly approved.
 
 ## Related Documentation
 

@@ -64,23 +64,31 @@ Recovery, retention, tuning, and notifications remain open maturity work.
 
 ## Local AI Boundary
 
-The local AI environment progressed from a loopback-only local model to a governed read-only retrieval plane with:
+The local AI environment progressed from a loopback-only local model to a governed read-only retrieval and orchestration plane with:
 
 - persistent local inference;
 - a protected loopback-only web dashboard;
 - Cloudflare-protected remote administration;
-- a root-confined read-only MCP;
+- a root-confined read-only retrieval MCP;
 - a deterministic default-deny knowledge export;
 - a derived, rebuildable knowledge mirror;
 - durable provenance and lifecycle state;
-- profile-aware retrieval for operational and historical use cases;
+- profile-aware retrieval;
 - stale/deleted/disabled-domain denial;
 - prompt-injection and boundary negative testing;
-- tested corpus rebuild and prior-generation rollback.
+- tested corpus rebuild and prior-generation rollback;
+- a bounded model-facing orchestration MCP;
+- deterministic routing to five Homelab agents;
+- explicit agent-to-retrieval-profile binding;
+- auditable route decisions;
+- provenance validation through the orchestrated path;
+- tested rollback from orchestration to the prior direct-MCP baseline.
 
-The current model is intentionally not an infrastructure control plane, and the canonical human knowledge estate is not exposed directly to the model.
+The current model remains intentionally outside the infrastructure control plane, and the canonical human knowledge estate is not exposed directly to either the router or retrieval MCP.
 
-Semantic/vector retrieval was evaluated but deliberately deferred because the accepted lexical/profile-aware baseline met the current retrieval requirement.
+Prompt 03 did not expand the enabled knowledge domain beyond Homelab.
+
+Semantic/vector retrieval remains deliberately deferred because neither Prompt 02 nor Prompt 03 demonstrated a measured need that justified the additional indexing and recovery complexity.
 
 ## Current Transition
 
@@ -96,8 +104,7 @@ Planned work includes:
 - full ICS/OT cyber-range workload implementation;
 - Red Team exercise integration;
 - VLAN60 AI placement;
-- domain-routing and provenance orchestration;
-- controlled one-domain-at-a-time knowledge expansion;
+- controlled one-domain-at-a-time knowledge expansion beyond Homelab;
 - semantic/vector retrieval only if a later measured requirement justifies it.
 
 These remain roadmap items until implemented and validated.
