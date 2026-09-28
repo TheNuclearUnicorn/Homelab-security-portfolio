@@ -12,7 +12,6 @@ tags:
   - lifecycle
   - publication
 ---
-
 # Public Documentation Governance
 
 > **Status:** Current publication-governance model for this repository.
