@@ -1,4 +1,4 @@
----
+﻿---
 title: "Observability Modernization — Migration and Validation Plan"
 document_id: "HSP-CS-001-MIGRATION"
 document_type: "case-study-plan"
@@ -285,3 +285,4 @@ current observability doc   WITHHELD
 - [Security Design Principles](../../docs/architecture/security-design-principles.md)
 - [GitOps and Isolated CI/CD](../../docs/devops/gitops-ci-cd.md)
 - [Backup and Recovery Architecture](../../docs/recovery/backup-recovery-architecture.md)
+

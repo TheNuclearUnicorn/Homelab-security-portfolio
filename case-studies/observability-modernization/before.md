@@ -1,4 +1,4 @@
----
+﻿---
 title: "Observability Modernization — Before"
 document_id: "HSP-CS-001-BEFORE"
 document_type: "case-study-baseline"
@@ -267,3 +267,4 @@ That evidence becomes the quantitative "before" side of the eventual before/afte
 - [Migration and Validation Plan](migration.md)
 - [Zero Trust Ingress](../../docs/platform/zero-trust-ingress.md)
 - [Wazuh SIEM Architecture](../../docs/security/wazuh-siem.md)
+
