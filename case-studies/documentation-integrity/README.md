@@ -46,7 +46,7 @@ The remediation therefore became a controlled data-integrity project.
 
 The process established a governed pipeline:
 
-```
+```text
 canonical documentation
         ↓
 read-only inventory and classification
@@ -74,7 +74,7 @@ The initial problem appeared straightforward: portions of the documentation corp
 
 Examples of this class of corruption include transformations such as:
 
-```
+```text
 intended UTF-8 punctuation
         ↓
 decoded using an incompatible character set
@@ -98,7 +98,7 @@ The problem therefore became:
 
 The documentation existed in several different roles:
 
-```
+```text
 canonical human-authored documentation
 historical and rollback evidence
 machine-generated inventories
@@ -157,7 +157,7 @@ Before modifying canonical documentation, a validated recovery checkpoint was es
 
 This changed the remediation model from:
 
-```
+```text
 find suspicious text
         ↓
 edit files
@@ -167,7 +167,7 @@ hope the result is correct
 
 to:
 
-```
+```text
 validated recovery state
         ↓
 inventory
@@ -191,7 +191,7 @@ The audit inventoried candidate files and searched for encoding anomalies withou
 
 The investigation separated findings into classes such as:
 
-```
+```text
 confirmed reversible mojibake
 display/rendering anomaly
 valid non-ASCII text
@@ -218,7 +218,7 @@ Instead, candidate transformations were validated before canonical mutation.
 
 Conceptually:
 
-```
+```text
 candidate corrupted bytes/text
         ↓
 known decoding/encoding reversal
@@ -240,7 +240,7 @@ Only confirmed affected canonical files were modified.
 
 The accepted remediation affected:
 
-```
+```text
 49 files audited
 3 canonical files repaired
 ```
@@ -253,7 +253,7 @@ Derived AI material was deliberately excluded from direct repair.
 
 The rule became:
 
-```
+```text
 canonical source is wrong
     -> repair canonical source
     -> validate canonical source
@@ -286,7 +286,7 @@ Post-repair validation included:
 
 The accepted remediation state was:
 
-```
+```text
 strict UTF-8 validation       PASS
 unexpected BOM                absent
 actionable mojibake           0
@@ -306,7 +306,7 @@ The environment also maintained generated retrieval projections used by AI tooli
 
 Those representations were explicitly treated as:
 
-```
+```text
 derived
 rebuildable
 noncanonical
@@ -320,7 +320,7 @@ The generator itself was subjected to validation before its output replaced the 
 
 The resulting model was:
 
-```
+```text
 canonical sources
         ↓
 validated generator
@@ -342,7 +342,7 @@ Some documents contained text that was syntactically valid UTF-8 but semanticall
 
 For example, a current document could still describe a program activity as:
 
-```
+```text
 ready for regeneration
 ```
 
@@ -354,7 +354,7 @@ The remediation therefore expanded from **byte integrity** to **state integrity*
 
 A targeted lifecycle audit compared current documentation against accepted program state and classified matches as:
 
-```
+```text
 genuine current-state conflict
 valid current statement
 historical point-in-time evidence
@@ -388,7 +388,7 @@ The process:
 
 This closed an important gap:
 
-```
+```text
 encoding integrity
     !=
 documentation integrity
@@ -418,7 +418,7 @@ AI/RAG mirrors, indexes, retrieval bundles, caches, and similar products are gen
 
 They are rebuildable and are not editing authority.
 
-```
+```text
 flowchart TD
     C["Canonical documentation"]
     A["Audit & validation"]
@@ -442,7 +442,7 @@ The dashed relationship is intentional: retrieval consumers can identify problem
 
 Generated inventories and knowledge projections now rely on explicit provenance fields such as:
 
-```
+```text
 stable source identity
 source-relative path
 canonical plane
@@ -469,7 +469,7 @@ Unexpected conditions stop processing rather than broadening scope.
 
 Examples include:
 
-```
+```text
 unapproved source
 unsupported lifecycle class
 unexpected path state
@@ -586,7 +586,7 @@ A file can pass every encoding and hash check while still describing obsolete op
 
 Documentation integrity therefore requires both:
 
-```
+```text
 byte-level integrity
 +
 state/lifecycle integrity
@@ -614,7 +614,7 @@ The objective is that every remaining finding has an understood and governed dis
 
 The resulting knowledge lifecycle is now:
 
-```
+```text
 authoritative human source
         ↓
 controlled change
