@@ -1,4 +1,4 @@
----
+﻿---
 title: "Observability Modernization — Migration and Validation Plan"
 document_id: "HSP-CS-001-MIGRATION"
 document_type: "case-study-plan"
@@ -279,9 +279,10 @@ current observability doc   WITHHELD
 
 ## Related Documentation
 
-- [Observability Modernization](Publishing/Homelab-security-portfolio/case-studies/observability-modernization/README.md)
+- [Observability Modernization](README.md)
 - [Before — Pre-Observability Baseline](before.md)
 - [Architecture Decision Framework](architecture-decision.md)
 - [Security Design Principles](../../docs/architecture/security-design-principles.md)
 - [GitOps and Isolated CI/CD](../../docs/devops/gitops-ci-cd.md)
 - [Backup and Recovery Architecture](../../docs/recovery/backup-recovery-architecture.md)
+
