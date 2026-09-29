@@ -1,34 +1,34 @@
 ---
 
-title: "Documentation Integrity Engineering — Recovering from Encoding Corruption and Building a Governed Knowledge Pipeline"  
-document_id: "HSP-CS-005"  
-document_type: "case-study"  
-status: "case-study"  
-environment: "sanitized-public-derivative"  
-last_reviewed: "2026-09-29"  
-sanitization: "operational-identifiers-substituted"  
+title: "Documentation Integrity Engineering — Recovering from Encoding Corruption and Building a Governed Knowledge Pipeline"
+document_id: "HSP-CS-005"
+document_type: "case-study"
+status: "case-study"
+environment: "sanitized-public-derivative"
+last_reviewed: "2026-09-29"
+sanitization: "operational-identifiers-substituted"
 tags:
 
 - documentation
-    
+
 - knowledge-engineering
-    
+
 - devsecops
-    
+
 - data-integrity
-    
+
 - utf-8
-    
+
 - automation
-    
+
 - governance
-    
+
 - rag
-    
+
 - change-control
-    
+
 - validation
-    
+
 
 ---
 
@@ -116,9 +116,9 @@ Likewise, historical evidence might intentionally contain the exact malformed st
 The remediation therefore required two separate questions for every finding:
 
 1. **Is this actually corrupted?**
-    
+
 2. **If it is corrupted, is this copy authoritative and eligible for repair?**
-    
+
 
 That distinction prevented the remediation process itself from becoming a new source of documentation drift.
 
@@ -127,25 +127,25 @@ That distinction prevented the remediation process itself from becoming a new so
 The remediation operated under several constraints:
 
 - canonical human-authored documentation had to remain the editing authority;
-    
+
 - generated AI/RAG representations could not be manually repaired as substitutes for their source;
-    
+
 - historical evidence had to remain point-in-time evidence;
-    
+
 - uncertain transformations had to fail closed rather than guess;
-    
+
 - backups had to exist before mutation;
-    
+
 - repairs had to be deterministic and reversible;
-    
+
 - files had to remain valid UTF-8 after modification;
-    
+
 - integrity evidence had to survive the repair;
-    
+
 - generated representations had to be rebuilt from corrected canonical sources;
-    
+
 - unrelated sensitive or excluded material could not be pulled into the remediation merely for convenience.
-    
+
 
 The objective was not to make every scan return zero findings.
 
@@ -272,17 +272,17 @@ Repair was not considered successful because the resulting text looked correct i
 Post-repair validation included:
 
 - strict UTF-8 decoding;
-    
+
 - byte-order-mark checks;
-    
+
 - rescanning for actionable mojibake;
-    
+
 - SHA-256 integrity evidence;
-    
+
 - comparison against the bounded repair inventory;
-    
+
 - confirmation that unrelated files were not silently changed.
-    
+
 
 The accepted remediation state was:
 
@@ -372,19 +372,19 @@ Lifecycle reconciliation followed the same canonical-first rule as encoding reme
 The process:
 
 1. identified current documents containing stale lifecycle assertions;
-    
+
 2. distinguished those from historical evidence;
-    
+
 3. backed up canonical targets;
-    
+
 4. changed only bounded current-state assertions;
-    
+
 5. validated the resulting semantic state;
-    
+
 6. regenerated affected derived representations;
-    
+
 7. replaced the consumer-side retrieval projection only after successful regeneration.
-    
+
 
 This closed an important gap:
 
@@ -643,30 +643,30 @@ Better retrieval cannot compensate for corrupted, ambiguous, or stale source mat
 This case study intentionally omits:
 
 - internal addressing;
-    
+
 - private hostnames;
-    
+
 - administrative access paths;
-    
+
 - credentials or secrets;
-    
+
 - private knowledge-domain contents;
-    
+
 - detailed internal filesystem locations;
-    
+
 - sensitive recovery artifacts;
-    
+
 - operational firewall rules;
-    
+
 - private repository details.
-    
+
 
 The public artifact documents the engineering method and control model rather than reproducing the protected environment.
 
 ## Related Documentation
 
 - [Homelab Security Portfolio](https://chatgpt.com/g/README.md)
-    
+
 - [Security Design Principles](https://chatgpt.com/g/docs/architecture/security-design-principles.md)
-    
+
 - [Trust Boundaries](https://chatgpt.com/g/docs/architecture/trust-boundaries.md)
