@@ -279,7 +279,7 @@ current observability doc   WITHHELD
 
 ## Related Documentation
 
-- [Observability Modernization](README.md)
+- [Observability Modernization](Publishing/Homelab-security-portfolio/case-studies/observability-modernization/README.md)
 - [Before — Pre-Observability Baseline](before.md)
 - [Architecture Decision Framework](architecture-decision.md)
 - [Security Design Principles](../../docs/architecture/security-design-principles.md)
